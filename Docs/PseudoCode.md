@@ -38,3 +38,25 @@ hids/
 ├── install.sh                   # Installation Linux
 └── README.md
 
+
+
+## log_reader.c :
+
+FONCTION init {
+    Allocation et remise a 0 de la mémoire
+    Lancement de fanotify avec le mode non bloquant (FAN_NONBLOCK)
+    Chargement du fichier de configuration qui contient tous les logs à surveiller
+}
+
+FONCTION addFileToSpec {
+    gestion erreur : mauvais chemin
+    ouvrir fichier 
+    aller a la fin du fichier (et log la position de la dernière lecture)
+
+    initialise la surveillance via fanotify
+}
+
+FONCTION choiceIfDetected {
+    charge les règles
+    gestion erreur : fichier n'existe pas / syntaxe invalide
+}
