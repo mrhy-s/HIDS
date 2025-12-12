@@ -8,12 +8,12 @@ int log_reader_init(void) {
     int fd;
 
     unsigned int init_flags =
-        FAN_CLASS_NOTIF |             // notifications uniquement (pas de blocage)
+        FAN_CLASS_PRE_CONTENT |       // interception AVANT lecture contenu
         FAN_NONBLOCK |                // mode non-bloquant
         FAN_UNLIMITED_QUEUE |         // pas de limite de taille de file d'attente
         FAN_UNLIMITED_MARKS;          // pas de limite de marques
 
-    unsigned int init_flags = O_RDONLY | O_LARGEFILE; 
+    unsigned int init_flags = O_RDWR | O_LARGEFILE; 
 
     fd = fanotify_init(init_flags, event_flags);
 
