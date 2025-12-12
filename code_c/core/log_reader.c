@@ -13,7 +13,9 @@ int log_reader_init(void) {
         FAN_UNLIMITED_QUEUE |         // pas de limite de taille de file d'attente
         FAN_UNLIMITED_MARKS;          // pas de limite de marques
 
-    unsigned int init_flags = O_RDWR | O_LARGEFILE; 
+    unsigned int event_flags = 
+        O_LARGEFILE | 
+        O_RDONLY; 
 
     fd = fanotify_init(init_flags, event_flags);
 
