@@ -50,7 +50,6 @@ func CallLogReader(path string) {
 }
 
 func NewLogReader(path string) (*LogReader, error) {
-	utils.Println("[DEBUG] Initialisation LogReader")
 
 	// Résoudre le chemin absolu
 	absPath, err := filepath.Abs(path)
